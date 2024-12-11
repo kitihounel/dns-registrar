@@ -18,5 +18,15 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        \App\Models\TopLevelDomain::factory()->create([
+            'name' => '.benin',
+        ]);
+
+        \App\Models\TopLevelDomain::factory()->create([
+            'name' => '.cotonou',
+        ]);
+
+        \App\Models\Customer::factory(2)->create();
     }
 }
