@@ -19,7 +19,15 @@ Route::get('/', function () {
 });
 
 Route::get('/domaine', function () {
-    return view('registrar');
+    return view('domaine');
+});
+
+Route::get('/active', function () {
+    return view('active');
+});
+
+Route::get('/demande', function () {
+    return view('demande');
 });
 
 Route::get('/dashboard', function () {
