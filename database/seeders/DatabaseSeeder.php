@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\TopLevelDomain::factory()->create([
             'name' => '.cotonou',
         ]);
+
+        \App\Models\Customer::factory(2)->create();
     }
 }
