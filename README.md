@@ -43,7 +43,11 @@ Your will need to set the values from the following vars:
 
 ### Initial migrations
 
-Run `php artisan migrate --seed` to create the required tables and have to get started.
+To create the required tables and get started, run:
+
+```
+php artisan migrate
+```
 
 ### Seeders
 
