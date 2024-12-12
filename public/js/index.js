@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const errorMessages = document.querySelectorAll('.error');
+
+  errorMessages.forEach(function(error) {
+      if (error) {
+          // Masquer l'erreur après 5 secondes avec animation
+          setTimeout(function() {
+              error.classList.add('hidden');
+          }, 5000); // 5000ms = 5 secondes
+      }
+  });
+});
+
 document.querySelector('.search-bar button').addEventListener('click', function() {
   const domain = document.querySelector('.search-bar input').value;
   if(domain) {
@@ -63,3 +76,4 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelector('.user-dashboard').style.display = 'block';
   });
 });
+

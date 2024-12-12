@@ -2,11 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DomainController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DomainRequestController;
-
 
 
 /*
@@ -22,34 +18,15 @@ use App\Http\Controllers\DomainRequestController;
 
 // Page d'accueil
 
-Route::get('/requests/create', [DomainRequestController::class, 'create'])->name('requests.create');
+Route::get('/', [DomainRequestController::class, 'create'])->name('requests.create');
 Route::post('/requests/store', [DomainRequestController::class, 'store'])->name('requests.store');
+Route::get('/requests', [DomainRequestController::class, 'index'])->name('requests.index');
 
-
-// Route::post('/requests', [RequestController::class, 'store'])->name('requests.store');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Gestion des domaines
-// Route::resource('domains', DomainController::class);
-
-// // Vues statiques
-// Route::view('/domaine', 'domaine')->name('domaine');
-// Route::view('/active', 'active')->name('active');
-// Route::view('/demande', 'demande')->name('demande');
-
-// Gestion des clients
-// Route::prefix('customers')->group(function () {
-//     Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
-//     Route::get('/create', [CustomerController::class, 'create'])->name('customers.create');
-//     Route::post('/', [CustomerController::class, 'store'])->name('customers.store');
-//     Route::get('/{id}', [CustomerController::class, 'show'])->name('customers.show');
-//     Route::get('/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
-//     Route::put('/{id}', [CustomerController::class, 'update'])->name('customers.update');
-//     Route::delete('/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
+// Route::get('/', function () {
+//     return view('welcome');
 // });
+
+
 
 // Tableau de bord
 Route::get('/dashboard', function () {

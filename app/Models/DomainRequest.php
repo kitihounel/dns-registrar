@@ -9,15 +9,16 @@ class DomainRequest extends Model
 {
     use HasFactory;
 
-    // Propriétés autorisées pour l'insertion en masse
-    protected $fillable = [
-        'full_name',
-        'email',
-        'phone_number',
-        'address',
-        'domain_name',
-        'extension',
-        'duration',
-        'whois_protection',
-    ];
+    protected $fillable = ['client_id', 'domain_name', 'extension', 'duration', 'whois_protection'];
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function domain()
+    {
+        return $this->hasOne(Domain::class);
+    }
 }
+

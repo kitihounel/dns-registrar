@@ -26,6 +26,10 @@
         @yield('active')
     </section>
     <script src="js/index.js"></script>
+    <script>
+
+
+    </script>
 </body>
 
 </html>

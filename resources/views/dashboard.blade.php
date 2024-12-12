@@ -52,21 +52,7 @@
                     </div>
                     <button class="btn btn-primary">+ Nouveau domaine</button>
                 </div>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>Nom de domaine</th>
-                            <th>Propriétaire</th>
-                            <th>Date d'enregistrement</th>
-                            <th>Date d'expiration</th>
-                            <th>Statut</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Example rows -->
-                    </tbody>
-                </table>
+           @include('domain_requests.index')
             </div>
         </div>
     </div>

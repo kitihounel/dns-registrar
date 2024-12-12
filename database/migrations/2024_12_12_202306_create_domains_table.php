@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('top_level_domains', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name')->unique();
+        Schema::create('domains', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('domain_request_id')->constrained('domain_requests')->onDelete('cascade');
+            $table->enum('status', ['en attente', 'approuvé', 'rejeté'])->default('en attente');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('top_level_domains');
+        Schema::dropIfExists('domains');
     }
 };
