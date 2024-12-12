@@ -1,0 +1,22 @@
+[33mb0f9adc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mchrislove_branch[m[33m)[m Merge remote-tracking branch 'origin/feat_customers' into chrislove_branch
+[33m075ff0d[m Added dnsRegistraire as a submodule
+[33m58851c2[m[33m ([m[1;31morigin/feat_customers[m[33m)[m [ADD:controller and view customers]
+[33m99ec839[m fichiers de base
+[33mdcb4da0[m Merge branch 'main' into chrislove_branch
+[33m52692d4[m[33m ([m[1;31morigin/chrislove_branch[m[33m)[m navbar
+[33mdc4fbd2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m feat: update doc
+[33mc039ebe[m feat: seed for customers
+[33m08023bd[m feat: seed for tld
+[33m850310b[m feat: tld model
+[33m8935144[m feat: customer model
+[33m20c56f2[m feat: domains table migration
+[33m760848c[m feat: requests table migration
+[33m234734b[m feat: customers table migration
+[33m18f6700[m feat: tld table migration
+[33mf24dd47[m feat: dark theme support for breeze
+[33md35c9df[m feat: updated doc
+[33ma9f3598[m feat: seed for default user
+[33m3993673[m feat: dev doc
+[33m446043c[m feat: installed breeze
+[33m29ac535[m feat: env vars
+[33mb64ac15[m initial commit

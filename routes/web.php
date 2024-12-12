@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Controllers\DomainController;
-
-=======
 use App\Http\Controllers\CustomerController;
->>>>>>> origin/feat_customers
+use App\Http\Controllers\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,42 +17,39 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
+// Page d'accueil
+
+Route::post('/requests', [RequestController::class, 'store'])->name('requests.store');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
+// Gestion des domaines
 Route::resource('domains', DomainController::class);
 
+// Vues statiques
+Route::view('/domaine', 'domaine')->name('domaine');
+Route::view('/active', 'active')->name('active');
+Route::view('/demande', 'demande')->name('demande');
 
-Route::get('/domaine', function () {
-    return view('domaine');
+// Gestion des clients
+Route::prefix('customers')->group(function () {
+    Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/create', [CustomerController::class, 'create'])->name('customers.create');
+    Route::post('/', [CustomerController::class, 'store'])->name('customers.store');
+    Route::get('/{id}', [CustomerController::class, 'show'])->name('customers.show');
+    Route::get('/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
+    Route::put('/{id}', [CustomerController::class, 'update'])->name('customers.update');
+    Route::delete('/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
 });
 
-Route::get('/active', function () {
-    return view('active');
-});
-
-Route::get('/demande', function () {
-    return view('demande');
-});
-
-=======
-
-Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index'); // Liste des clients
-Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create'); // Formulaire création
-Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store'); // Enregistrement
-Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show'); // Affichage d'un client
-Route::get('/customers/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit'); // Formulaire édition
-Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update'); // Mise à jour
-Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy'); // Suppression
-
-
->>>>>>> origin/feat_customers
+// Tableau de bord
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Gestion des profils
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

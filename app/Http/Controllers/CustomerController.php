@@ -14,7 +14,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers =Customer::all();
-        return view ('customers.index', compact('customers'));
+        return view ('customers.create', compact('customers'));
     }
 
     /**
@@ -22,8 +22,12 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customers.create');
+        $requests = Request::all(); // Assuming you have a Request model
+        $requestId = Request::find(1); // Example of fetching a request, you may adjust this logic
+        return view('customers.create', compact('requests', 'requestId'));
     }
+    
+    
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +39,6 @@ class CustomerController extends Controller
             'required',
             'string',
             'max:255',
-            'regex:/^[a-zA-Z\s]+$/',
         ],
         'email' => [
             'required',
@@ -52,7 +55,6 @@ class CustomerController extends Controller
         'address' => [
             'nullable',
             'string',
-            'regex:/^[a-zA-Z0-9\s,.-]+$/',
         ],
     ], [
         'full_name.regex' => 'Le nom complet ne doit contenir que des lettres et des espaces.',
