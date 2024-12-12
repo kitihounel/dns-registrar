@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index'); // Liste des clients
+Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create'); // Formulaire création
+Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store'); // Enregistrement
+Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show'); // Affichage d'un client
+Route::get('/customers/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit'); // Formulaire édition
+Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update'); // Mise à jour
+Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy'); // Suppression
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
